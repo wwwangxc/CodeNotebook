@@ -15,7 +15,7 @@ namespace CodeNotebook.Util
         /// <typeparam name="T"></typeparam>
         /// <param name="collection"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(ICollection<T> collection) => 
+        public static bool IsNullOrEmpty<T>(ICollection<T> collection) =>
             collection == null || collection.Count == 0;
 
         /// <summary>
