@@ -4,7 +4,7 @@ using System.Text;
 using CodeNotebook.Util;
 using Xunit;
 
-namespace CodeNotebook.Test
+namespace Util
 {
     public class SpellUtilTest
     {
