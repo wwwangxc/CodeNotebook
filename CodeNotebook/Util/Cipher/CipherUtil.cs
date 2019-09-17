@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CodeNotebook.Util.Handler;
+using CodeNotebook.Util.Cipher;
 
 namespace CodeNotebook.Util
 {
     public class CipherUtil
     {
+        #region Private
         private volatile static Dictionary<string, ICipherHandler> _handler = new Dictionary<string, ICipherHandler>();
         private readonly static object _sysLock = new object();
         private CipherUtil() { }
@@ -29,38 +30,8 @@ namespace CodeNotebook.Util
 
             return handler;
         }
+        #endregion
 
         public ICipherHandler MD5 => GetHandler<Md5Handler>();
-
-    }
-
-    public interface ICipherHandler
-    {
-        /// <summary>
-        /// 加密
-        /// </summary>
-        /// <param name="arg"></param>
-        /// <returns></returns>
-        string Encrypt(string arg);
-        /// <summary>
-        /// 加密
-        /// </summary>
-        /// <param name="arg"></param>
-        /// <param name="arg"></param>
-        /// <returns></returns>
-        string Encrypt(string arg, string key);
-        /// <summary>
-        /// 解密
-        /// </summary>
-        /// <param name="arg"></param>
-        /// <returns></returns>
-        string Decrypt(string arg);
-        /// <summary>
-        /// 解密
-        /// </summary>
-        /// <param name="arg"></param>
-        /// <param name="arg"></param>
-        /// <returns></returns>
-        string Decrypt(string arg, string key);
     }
 }

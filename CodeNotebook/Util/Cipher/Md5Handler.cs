@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CodeNotebook.Util.Handler
+namespace CodeNotebook.Util.Cipher
 {
     public class Md5Handler : ICipherHandler
     {
