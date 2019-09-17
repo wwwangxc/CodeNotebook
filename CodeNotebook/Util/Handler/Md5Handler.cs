@@ -6,18 +6,22 @@ namespace CodeNotebook.Util.Handler
 {
     public class Md5Handler : ICipherHandler
     {
-        public string Decrypt(string arg)
+        public string Decrypt(string arg) => Decrypt(arg, SecretKey);
+
+        public string Decrypt(string arg, string key)
         {
             throw new NotImplementedException();
         }
 
-        public string Encrypt(string arg)
+        public string Encrypt(string arg) => Encrypt(arg, SecretKey);
+
+        public string Encrypt(string arg, string key)
         {
             using (var md5 = System.Security.Cryptography.MD5.Create())
             {
-                var str = md5.ComputeHash(Encoding.UTF8.GetBytes(arg + SecretKey));
+                var str = md5.ComputeHash(Encoding.UTF8.GetBytes(arg + key));
                 var returnStr = BitConverter.ToString(
-                    md5.ComputeHash(Encoding.UTF8.GetBytes(BitConverter.ToString(str).Replace("-", "0") + SecretKey)))
+                    md5.ComputeHash(Encoding.UTF8.GetBytes(BitConverter.ToString(str).Replace("-", "0") + key)))
                     .Replace("-", string.Empty).ToLower();
                 return returnStr;
             }
