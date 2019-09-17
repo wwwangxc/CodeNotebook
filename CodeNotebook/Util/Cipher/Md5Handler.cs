@@ -6,14 +6,14 @@ namespace CodeNotebook.Util.Cipher
 {
     public class Md5Handler : ICipherHandler
     {
-        public string Decrypt(string arg) => Decrypt(arg, SecretKey);
+        public string Decrypt(string arg) => Decrypt(arg, KEY);
 
         public string Decrypt(string arg, string key)
         {
             throw new NotImplementedException();
         }
 
-        public string Encrypt(string arg) => Encrypt(arg, SecretKey);
+        public string Encrypt(string arg) => Encrypt(arg, KEY);
 
         public string Encrypt(string arg, string key)
         {
@@ -27,6 +27,6 @@ namespace CodeNotebook.Util.Cipher
             }
         }
 
-        private const string SecretKey = "f2eb43bd8d5b42af95ce207cecb5934f";
+        private const string KEY = "f2eb43bd8d5b42af95ce207cecb5934f";
     }
 }

@@ -32,6 +32,7 @@ namespace CodeNotebook.Util
         }
         #endregion
 
-        public ICipherHandler MD5 => GetHandler<Md5Handler>();
+        public static ICipherHandler MD5 => GetHandler<Md5Handler>();
+        public static ICipherHandler AES => GetHandler<AesHandler>();
     }
 }
