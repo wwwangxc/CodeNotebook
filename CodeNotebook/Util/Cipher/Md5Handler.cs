@@ -4,29 +4,23 @@ using System.Text;
 
 namespace CodeNotebook.Util.Cipher
 {
-    public class Md5Handler : ICipherHandler
+    public class Md5Handler : BaseCipherHandler
     {
-        public string Decrypt(string arg) => Decrypt(arg, KEY);
-
-        public string Decrypt(string arg, string key)
+        public override string Encrypt(string arg, string key)
         {
-            throw new NotImplementedException();
-        }
-
-        public string Encrypt(string arg) => Encrypt(arg, KEY);
-
-        public string Encrypt(string arg, string key)
-        {
+            var ret = string.Empty;
             using (var md5 = System.Security.Cryptography.MD5.Create())
             {
-                var str = md5.ComputeHash(Encoding.UTF8.GetBytes(arg + key));
-                var returnStr = BitConverter.ToString(
-                    md5.ComputeHash(Encoding.UTF8.GetBytes(BitConverter.ToString(str).Replace("-", "0") + key)))
-                    .Replace("-", string.Empty).ToLower();
-                return returnStr;
+                var bytes = md5.ComputeHash(
+                    Encoding.UTF8.GetBytes(arg + key));
+                ret = BitConverter.ToString(
+                    md5.ComputeHash(
+                        Encoding.UTF8.GetBytes(
+                            BitConverter.ToString(bytes).Replace("-", "0") + key)))
+                    .Replace("-", string.Empty)
+                    .ToLower();
             }
+            return ret;
         }
-
-        private const string KEY = "f2eb43bd8d5b42af95ce207cecb5934f";
     }
 }

@@ -6,11 +6,9 @@ using System.Text;
 
 namespace CodeNotebook.Util.Cipher
 {
-    public class AesHandler : ICipherHandler
+    public class AesHandler : BaseCipherHandler
     {
-        public string Decrypt(string arg) => Decrypt(arg, KEY);
-
-        public string Decrypt(string arg, string key)
+        public override string Decrypt(string arg, string key)
         {
             var fullCipher = Convert.FromBase64String(arg);
 
@@ -40,10 +38,7 @@ namespace CodeNotebook.Util.Cipher
                 }
             }
         }
-
-        public string Encrypt(string arg) => Encrypt(arg, KEY);
-
-        public string Encrypt(string arg, string key)
+        public override string Encrypt(string arg, string key)
         {
             using (var aes = Aes.Create())
             {
@@ -68,7 +63,5 @@ namespace CodeNotebook.Util.Cipher
                 }
             }
         }
-
-        private const string KEY = "031fd7211421480bb359ed3365f1c682";
     }
 }

@@ -16,7 +16,7 @@ namespace CodeNotebook.Util
         /// 加密
         /// </summary>
         /// <param name="arg"></param>
-        /// <param name="arg"></param>
+        /// <param name="key"></param>
         /// <returns></returns>
         string Encrypt(string arg, string key);
         /// <summary>
@@ -29,7 +29,7 @@ namespace CodeNotebook.Util
         /// 解密
         /// </summary>
         /// <param name="arg"></param>
-        /// <param name="arg"></param>
+        /// <param name="key"></param>
         /// <returns></returns>
         string Decrypt(string arg, string key);
     }
