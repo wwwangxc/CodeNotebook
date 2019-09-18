@@ -58,5 +58,24 @@ namespace Util
             decryptStr = CipherUtil.AES.Decrypt(encryptStr, key);
             Output.WriteLine($"AES解密后：{decryptStr}");
         }
+
+        [Fact]
+        public void SHA1()
+        {
+            var str = "CodeNotebook";
+            this.Output.WriteLine($"SHA1加密前：{str}");
+
+            var encryptStr = CipherUtil.MD5.Encrypt(str);
+            Output.WriteLine($"SHA1加密后：{encryptStr}");
+
+            Output.WriteLine(string.Empty);
+            var key = Guid.NewGuid().ToString("N");
+            Output.WriteLine($"Key：{key}");
+
+            this.Output.WriteLine($"SHA1加密前：{str}");
+
+            encryptStr = CipherUtil.MD5.Encrypt(str, key);
+            Output.WriteLine($"SHA1加密后：{encryptStr}");
+        }
     }
 }

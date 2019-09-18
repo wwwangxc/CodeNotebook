@@ -34,5 +34,6 @@ namespace CodeNotebook.Util
 
         public static ICipherHandler MD5 => GetHandler<Md5Handler>();
         public static ICipherHandler AES => GetHandler<AesHandler>();
+        public static ICipherHandler SHA1 => GetHandler<Sha1Handler>();
     }
 }
